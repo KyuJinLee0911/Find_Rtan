@@ -6,6 +6,8 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     Animator anim;
+    public AudioClip flipClip;
+    public AudioSource audioSource;
     private void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -36,6 +38,7 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {
+        audioSource.PlayOneShot(flipClip);
         anim.SetBool("isOpen", true);
 
         if(GameManager.Instance().firstCard == null)

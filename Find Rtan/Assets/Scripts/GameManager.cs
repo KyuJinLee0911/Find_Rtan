@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public GameObject firstCard;
     public GameObject secondCard;
 
+    public AudioClip match;
+    public AudioSource audioSource;
+
     int maxCardCount = 16;
     public GameObject endTxt;
 
@@ -77,6 +80,7 @@ public class GameManager : MonoBehaviour
 
         if (firstImage == secondImage)
         {
+            audioSource.PlayOneShot(match);
             maxCardCount -= 2;
             firstCard.GetComponent<Card>().HideCard();
             secondCard.GetComponent<Card>().HideCard();
